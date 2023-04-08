@@ -16,8 +16,6 @@ public class PhanSo {
     private int mau;
 
     public PhanSo() {
-        tu = 0;
-        mau = 1;
     }
 
     public PhanSo(int tu, int mau) {
@@ -72,9 +70,31 @@ public class PhanSo {
     public void nhap() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhap tu so: ");
-        tu = scanner.nextInt();
+        while (!scanner.hasNextInt()) {
+            System.out.println("Vui long nhap mot so nguyen cho tu so: ");
+            scanner.next();
+        }
+        this.tu = scanner.nextInt();
         System.out.print("Nhap mau so: ");
-        mau = scanner.nextInt();
+        while (!scanner.hasNextInt()) {
+            System.out.println("Vui long nhap mot so nguyen cho mau so: ");
+            scanner.next();
+        }
+        String input = scanner.next();
+        while (input.isEmpty() || !input.matches("-?\\d+")) {
+            System.out.println("Vui long nhap mot so nguyen khac 0 cho mau so: ");
+            input = scanner.next();
+        }
+        this.mau = Integer.parseInt(input);
+        while (this.mau == 0) {
+            System.out.println("Mau so phai khac 0. Vui long nhap lai!");
+            input = scanner.next();
+            while (input.isEmpty() || !input.matches("-?\\d+")) {
+                System.out.println("Vui long nhap mot so nguyen khac 0 cho mau so: ");
+                input = scanner.next();
+            }
+            this.mau = Integer.parseInt(input);
+        }
     }
 
     public void xuat() {
