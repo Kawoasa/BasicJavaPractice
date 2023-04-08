@@ -101,7 +101,7 @@ public class PhanSo {
         System.out.println(tu + "/" + mau);
     }
 
-    public double dinhGia() {
+    public double dinhGiaTri() {
         return (double) tu / mau;
     }
 }
