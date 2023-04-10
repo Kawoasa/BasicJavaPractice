@@ -14,9 +14,9 @@ public class Student {
     private String name;
     private int age;
     private String address;
-    private float gpa;
+    private double gpa;
 
-    public Student(int id, String name, int age, String address, float gpa) {
+    public Student(int id, String name, int age, String address, double gpa) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -56,17 +56,22 @@ public class Student {
         this.address = address;
     }
 
-    public float getGpa() {
+    public double getGpa() {
         return gpa;
     }
 
-    public void setGpa(float gpa) {
+    public void setGpa(double gpa) {
         this.gpa = gpa;
     }
 
     @Override
     public String toString() {
-        return "ID: " + id + "\tName: " + name + "\tAge: " + age + "\tAddress: " + address + "\tGPA: " + gpa;
+        
+        //        String row = String.format("%-12d%-12s%07d", id, name, age, address, gpa);
+        //        System.out.println(header);
+        //        System.out.println(row);
+//        "ID: " + id + "\tName: " + name + "\t\tAge: " + age + "\t\tAddress: " + address + "\t\tGPA: " + gpa
+        return String.format("%-12d%-20s%-12d%-30s%.3f\n", id, name, age, address, gpa);
     }
 
 }
